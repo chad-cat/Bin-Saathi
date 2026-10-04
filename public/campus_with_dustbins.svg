@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1462 1079" width="1462" height="1079">
+  <defs>
+    <style>
+      .bg { fill: #fcfbf7; }
+      .boundary { fill: #ffffff; stroke: #c84020; stroke-width: 3; stroke-dasharray: 8,4; }
+      .road { stroke: #d1d5db; stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .road-major { stroke: #9ca3af; stroke-width: 10; fill: none; stroke-linecap: round; }
+      .academic { fill: #16a34a; stroke: #14532d; stroke-width: 1.5; }
+      .hostel { fill: #2563eb; stroke: #1e3a8a; stroke-width: 1.5; }
+      .residence { fill: #fef08a; stroke: #ca8a04; stroke-width: 1.2; }
+      .admin { fill: #e5e7eb; stroke: #4b5563; stroke-width: 2; }
+      .sports { fill: #dcfce7; stroke: #86efac; stroke-width: 2; }
+      .text-label { font-family: sans-serif; font-size: 11px; fill: #4b5563; font-weight: bold; }
+      .text-muted { font-family: sans-serif; font-size: 9px; fill: #6b7280; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1462" height="1079" class="bg" />
+
+  <!-- Outer Campus Boundary -->
+  <polygon points="120,400 350,150 500,80 800,40 1000,100 1200,280 1350,600 1250,900 1050,1050 500,1050 300,980 150,700 80,550" class="boundary" />
+
+  <!-- Waterway / Canal on West -->
+  <path d="M 60,100 Q 90,500 100,1000" stroke="#93c5fd" stroke-width="24" fill="none" />
+  <text x="50" y="550" class="text-muted" transform="rotate(-85 50 550)">UPPER GANGES CANAL</text>
+
+  <!-- Sports Grounds & Green Spaces -->
+  <rect x="520" y="440" width="220" height="90" rx="20" class="sports" />
+  <text x="580" y="490" class="text-label">SPORTS GROUND</text>
+
+  <rect x="730" y="240" width="160" height="80" rx="10" class="sports" />
+  <text x="760" y="285" class="text-muted">AIR GROUND</text>
+
+  <circle cx="820" cy="270" r="35" class="sports" />
+  <text x="800" y="275" class="text-muted">PARK</text>
+
+  <rect x="520" y="820" width="140" height="60" class="sports" />
+  <text x="540" y="855" class="text-muted">TENNIS COURTS</text>
+
+  <!-- Major Roads Network -->
+  <path d="M 120,400 L 450,420 L 710,540 L 1050,560 L 1250,620" class="road-major" />
+  <path d="M 500,80 L 520,350 L 530,680 L 540,950 L 550,1050" class="road-major" />
+  <path d="M 710,540 L 710,705 L 710,950 L 760,1020" class="road-major" />
+  <path d="M 1000,100 L 980,400 L 860,615 L 710,705 L 300,740" class="road" />
+  <path d="M 450,420 L 430,700 L 450,980" class="road" />
+  <path d="M 710,705 L 1000,720 L 1150,850" class="road" />
+  <path d="M 860,615 L 1100,450 L 1200,300" class="road" />
+
+  <!-- Academic Buildings (Green) -->
+  <rect x="650" y="730" width="80" height="50" class="academic" />
+  <rect x="750" y="730" width="90" height="60" class="academic" />
+  <rect x="630" y="840" width="70" height="60" class="academic" />
+  <rect x="730" y="840" width="110" height="55" class="academic" />
+  <rect x="860" y="830" width="70" height="70" class="academic" />
+  <text x="690" y="810" class="text-label">ACADEMIC COMPLEX</text>
+
+  <!-- Administration Building at Anchor [710, 705] -->
+  <polygon points="680,680 740,680 750,730 670,730" class="admin" />
+  <rect x="695" y="690" width="30" height="30" fill="#9ca3af" />
+  <text x="660" y="670" class="text-label" font-size="12">MAIN BUILDING / ADMIN</text>
+
+  <!-- Central Library -->
+  <rect x="760" y="660" width="60" height="40" class="admin" />
+  <text x="765" y="685" class="text-muted">MGCL</text>
+
+  <!-- Hostels & Messes (Blue) -->
+  <!-- Cautley Bhawan (North) near L1 -->
+  <rect x="520" y="270" width="90" height="50" class="hostel" />
+  <text x="525" y="300" fill="#ffffff" font-size="9" font-family="sans-serif">Cautley Bhawan</text>
+
+  <!-- Ravindra Bhawan near L4 -->
+  <rect x="380" y="660" width="80" height="55" class="hostel" />
+  <text x="385" y="695" fill="#ffffff" font-size="9" font-family="sans-serif">Ravindra Bhawan</text>
+
+  <!-- Govind Bhawan near L6 -->
+  <rect x="520" y="915" width="80" height="55" class="hostel" />
+  <text x="525" y="950" fill="#ffffff" font-size="9" font-family="sans-serif">Govind Bhawan</text>
+
+  <!-- A.N. Khosla Bhawan near L5 -->
+  <rect x="850" y="890" width="85" height="55" class="hostel" />
+  <text x="855" y="925" fill="#ffffff" font-size="9" font-family="sans-serif">A.N. Khosla</text>
+
+  <!-- East Hostels -->
+  <rect x="880" y="580" width="90" height="60" class="hostel" />
+  <rect x="980" y="420" width="80" height="50" class="hostel" />
+
+  <!-- Staff Residences (Vikas Nagar, etc. - Yellow) -->
+  <g class="residence">
+    <rect x="880" y="140" width="30" height="20" />
+    <rect x="930" y="140" width="30" height="20" />
+    <rect x="980" y="150" width="30" height="20" />
+    <rect x="1030" y="160" width="30" height="20" />
+    <rect x="910" y="180" width="35" height="20" />
+    <rect x="970" y="190" width="35" height="20" />
+    <rect x="1030" y="200" width="35" height="20" />
+    <rect x="960" y="270" width="40" height="25" />
+    <rect x="1020" y="280" width="40" height="25" />
+    <rect x="1080" y="290" width="40" height="25" />
+    <rect x="1100" y="360" width="40" height="25" />
+    <rect x="1140" y="420" width="40" height="25" />
+    <rect x="1180" y="480" width="40" height="25" />
+  </g>
+  <text x="960" y="130" class="text-label">VIKAS NAGAR</text>
+
+  <!-- West Residences -->
+  <g class="residence">
+    <rect x="180" y="400" width="35" height="20" />
+    <rect x="180" y="440" width="35" height="20" />
+    <rect x="180" y="480" width="35" height="20" />
+    <rect x="180" y="520" width="35" height="20" />
+    <rect x="180" y="560" width="35" height="20" />
+    <rect x="180" y="600" width="35" height="20" />
+  </g>
+
+  <!-- Saraswati Temple -->
+  <polygon points="750,380 765,360 780,380" fill="#f97316" stroke="#c2410c" />
+  <text x="735" y="395" class="text-muted">TEMPLE</text>
+
+  <!-- North Arrow Compass -->
+  <g transform="translate(280, 150)">
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#6b7280" stroke-width="1.5" />
+    <polygon points="0,-28 7,0 0,-4 -7,0" fill="#dc2626" />
+    <polygon points="0,28 7,0 0,4 -7,0" fill="#4b5563" />
+    <text x="-4" y="-34" font-family="sans-serif" font-size="14" font-weight="bold" fill="#dc2626">N</text>
+  </g>
+
+  <!-- Map Legend (Top Right) -->
+  <g transform="translate(1120, 60)">
+    <rect width="300" height="150" fill="#ffffff" stroke="#1C1C1A" stroke-width="2" rx="4" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.1))" />
+    <text x="20" y="30" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1C1C1A">DUSTBIN LOCATIONS</text>
+    <circle cx="30" cy="60" r="6" fill="#f97316" stroke="#c2410c" stroke-width="1.5" />
+    <text x="48" y="64" font-family="sans-serif" font-size="11" fill="#374151">Dry waste bin (paired)</text>
+    <circle cx="30" cy="90" r="6" fill="#a855f7" stroke="#7e22ce" stroke-width="1.5" />
+    <text x="48" y="94" font-family="sans-serif" font-size="11" fill="#374151">Wet waste bin (paired)</text>
+    <rect x="24" y="114" width="12" height="12" fill="#ef4444" stroke="#991b1b" stroke-width="1.5" />
+    <text x="48" y="124" font-family="sans-serif" font-size="11" fill="#374151">Large collection site (L1-L6)</text>
+    <text x="20" y="142" font-family="sans-serif" font-size="10" font-style="italic" fill="#6b7280">63 pairs | 6 large sites</text>
+  </g>
+
+  <!-- Campus Buildings Legend (Bottom Right) -->
+  <g transform="translate(1120, 660)">
+    <rect width="300" height="280" fill="#ffffff" stroke="#6b7280" stroke-width="1" rx="4" />
+    <text x="20" y="28" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1C1C1A">CATEGORIES OF BUILDING</text>
+    <rect x="20" y="45" width="16" height="10" class="academic" />
+    <text x="45" y="54" font-family="sans-serif" font-size="10" fill="#374151">ACADEMIC DEPT &amp; CENTRES</text>
+    <rect x="20" y="70" width="16" height="10" class="hostel" />
+    <text x="45" y="79" font-family="sans-serif" font-size="10" fill="#374151">HOSTELS &amp; MESSES</text>
+    <rect x="20" y="95" width="16" height="10" class="admin" />
+    <text x="45" y="104" font-family="sans-serif" font-size="10" fill="#374151">CENTRAL ADMINISTRATION</text>
+    <rect x="20" y="120" width="16" height="10" class="residence" />
+    <text x="45" y="129" font-family="sans-serif" font-size="10" fill="#374151">STAFF RESIDENCES</text>
+    <rect x="20" y="145" width="16" height="10" class="sports" />
+    <text x="45" y="154" font-family="sans-serif" font-size="10" fill="#374151">RECREATIONAL &amp; SPORTS</text>
+    <line x1="20" y1="175" x2="36" y2="175" stroke="#c84020" stroke-width="2" stroke-dasharray="4,2" />
+    <text x="45" y="179" font-family="sans-serif" font-size="10" fill="#374151">IITR BOUNDARY</text>
+  </g>
+</svg>

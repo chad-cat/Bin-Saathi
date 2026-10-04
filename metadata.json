@@ -1,0 +1,11 @@
+{
+  "name": "Remix Bin Saathi",
+  "description": "Waste segregation and disposal guide for IIT Roorkee under India\u0027s Solid Waste Management Rules 2026.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,78 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper: checks if user is authenticated (including anonymous auth)
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Helper: checks if user is owner of resource
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Sites Collection
+    match /sites/{siteId} {
+      // Anyone signed in can read sites (filtered in query if hidden)
+      allow read: if isAuthenticated();
+
+      // Users can create sites with their own uid as authorId
+      allow create: if isAuthenticated()
+                    && request.resource.data.authorId == request.auth.uid
+                    && request.resource.data.id == siteId
+                    && request.resource.data.confirmationCount >= 0
+                    && request.resource.data.reportCount == 0
+                    && request.resource.data.status in ['active', 'hidden'];
+
+      // Users can edit only their own sites; counters (confirmationCount, reportCount, status)
+      // can be updated during community confirmations/reports
+      allow update: if isAuthenticated() && (
+        isOwner(resource.data.authorId) ||
+        (
+          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['confirmationCount', 'reportCount', 'status'])
+        )
+      );
+
+      // Nobody can delete another user's site; only the author can delete their site
+      allow delete: if isOwner(resource.data.authorId);
+
+      // Confirmations subcollection: 1 confirmation per user per site enforced by siteId_userId
+      match /confirmations/{confirmationId} {
+        allow read: if isAuthenticated();
+        allow create: if isAuthenticated()
+                      && confirmationId == siteId + '_' + request.auth.uid
+                      && request.resource.data.userId == request.auth.uid
+                      && request.resource.data.siteId == siteId;
+        allow update: if false; // Confirmations are immutable
+        allow delete: if isOwner(resource.data.userId);
+      }
+
+      // Reports subcollection: 1 report per user per site enforced by siteId_userId
+      match /reports/{reportId} {
+        allow read: if isAuthenticated();
+        allow create: if isAuthenticated()
+                      && reportId == siteId + '_' + request.auth.uid
+                      && request.resource.data.userId == request.auth.uid
+                      && request.resource.data.siteId == siteId;
+        allow update: if false; // Reports are immutable
+        allow delete: if isOwner(resource.data.userId);
+      }
+    }
+
+    // Community Feedback Collection (Corrections: item name + category only, no photos/PII)
+    match /feedbacks/{feedbackId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated()
+                    && request.resource.data.userId == request.auth.uid
+                    && request.resource.data.keys().hasAll(['id', 'userId', 'itemName', 'category', 'createdAt']);
+      allow update: if false; // Immutable audit log
+      allow delete: if false; // Cannot delete community feedback
+    }
+
+    // Default deny all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

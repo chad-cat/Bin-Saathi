@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* Bin Saathi Clean Leaflet Popup Card */
+.bs-clean-popup .leaflet-popup-content-wrapper {
+  background: #FAFAF8;
+  border: 1px solid #E6E5E0;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  overflow: hidden;
+}
+
+.bs-clean-popup .leaflet-popup-content {
+  margin: 0;
+  line-height: 1.4;
+  font-family: inherit;
+}
+
+.bs-clean-popup .leaflet-popup-tip {
+  background: #FAFAF8;
+  border: 1px solid #E6E5E0;
+}
+
+.bs-clean-popup .leaflet-popup-close-button {
+  top: 10px !important;
+  right: 10px !important;
+  color: #6B6B66 !important;
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 18px !important;
+  border-radius: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.bs-clean-popup .leaflet-popup-close-button:hover {
+  background-color: #E6E5E0 !important;
+  color: #1C1C1A !important;
+}
