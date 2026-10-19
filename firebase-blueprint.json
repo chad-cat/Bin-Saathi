@@ -1,0 +1,162 @@
+{
+  "entities": {
+    "Site": {
+      "title": "Site",
+      "description": "A campus waste disposal, bin, or drop-off location.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the site."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name or landmark for the disposal site."
+        },
+        "nameHi": {
+          "type": "string",
+          "description": "Hindi name for the site."
+        },
+        "category": {
+          "type": "string",
+          "description": "Waste stream category accepted at this site."
+        },
+        "lat": {
+          "type": "number",
+          "description": "Latitude coordinate on campus."
+        },
+        "lng": {
+          "type": "number",
+          "description": "Longitude coordinate on campus."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Access guidance, timing, or rules for this site."
+        },
+        "authorId": {
+          "type": "string",
+          "description": "Anonymous user ID of the creator."
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Creation timestamp in milliseconds."
+        },
+        "confirmationCount": {
+          "type": "number",
+          "description": "Number of unique anonymous user confirmations."
+        },
+        "reportCount": {
+          "type": "number",
+          "description": "Number of problem reports submitted for this site."
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of the site: active or hidden (hidden if 3+ reports)."
+        }
+      },
+      "required": ["id", "name", "category", "lat", "lng", "authorId", "confirmationCount", "reportCount", "status"]
+    },
+    "SiteConfirmation": {
+      "title": "SiteConfirmation",
+      "description": "A confirmation by an anonymous user verifying that a site exists and is accurate.",
+      "type": "object",
+      "properties": {
+        "siteId": {
+          "type": "string",
+          "description": "ID of the confirmed site."
+        },
+        "userId": {
+          "type": "string",
+          "description": "ID of the user confirming the site."
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Timestamp when confirmed."
+        }
+      },
+      "required": ["siteId", "userId", "createdAt"]
+    },
+    "SiteReport": {
+      "title": "SiteReport",
+      "description": "A problem report by an anonymous user for an invalid, missing, or overflowing site.",
+      "type": "object",
+      "properties": {
+        "siteId": {
+          "type": "string",
+          "description": "ID of the reported site."
+        },
+        "userId": {
+          "type": "string",
+          "description": "ID of the user reporting the site."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for the report (e.g. missing, overflowing, wrong category)."
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Timestamp when reported."
+        }
+      },
+      "required": ["siteId", "userId", "reason", "createdAt"]
+    },
+    "CommunityFeedback": {
+      "title": "CommunityFeedback",
+      "description": "Anonymous waste sorting correction with item name and category only (no photos or personal data).",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Anonymous user ID."
+        },
+        "itemName": {
+          "type": "string",
+          "description": "Name of the corrected waste item."
+        },
+        "category": {
+          "type": "string",
+          "description": "Corrected waste category."
+        },
+        "previousCategory": {
+          "type": "string",
+          "description": "Initial category before user correction."
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Timestamp when submitted."
+        }
+      },
+      "required": ["id", "userId", "itemName", "category", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/sites/{siteId}": {
+      "schema": {
+        "$ref": "#/entities/Site"
+      },
+      "description": "Collection of crowdsourced and campus disposal sites."
+    },
+    "/sites/{siteId}/confirmations/{confirmationId}": {
+      "schema": {
+        "$ref": "#/entities/SiteConfirmation"
+      },
+      "description": "Confirmations per site, keyed by siteId_userId to enforce 1 confirmation per user."
+    },
+    "/sites/{siteId}/reports/{reportId}": {
+      "schema": {
+        "$ref": "#/entities/SiteReport"
+      },
+      "description": "Problem reports per site, keyed by siteId_userId to enforce 1 report per user."
+    },
+    "/feedbacks/{feedbackId}": {
+      "schema": {
+        "$ref": "#/entities/CommunityFeedback"
+      },
+      "description": "Anonymous corrections storing item name + category only."
+    }
+  }
+}
