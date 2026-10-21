@@ -1,5 +1,5 @@
-import { buildSeedSites, pxToLatLng, refitGeoref } from '../lib/georef';
-import { AppSettings, ContactEntry, ScanFeedback, ScanRecord, ScanResponse, Site } from '../types';
+import { buildSeedSites, pxToLatLng, refitGeoref } from '../lib/georef.js';
+import { AppSettings, ContactEntry, ScanFeedback, ScanRecord, ScanResponse, Site } from '../types.js';
 
 class SafeStorage {
   private mem = new Map<string, string>();

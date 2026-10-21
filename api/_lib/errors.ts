@@ -1,4 +1,4 @@
-import { GeminiAppError } from '../../src/services/gemini';
+import { GeminiAppError } from '../../src/services/gemini.js';
 
 export function handleGeminiError(err: unknown, res: any, lang: 'en' | 'hi' = 'en') {
   console.error('[Gemini Server Technical Error]:', err);

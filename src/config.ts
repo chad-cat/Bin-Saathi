@@ -1,4 +1,4 @@
-import { Category } from './types';
+import { Category } from './types.js';
 
 export const MODEL_SCAN = 'gemini-3.1-flash-lite';
 export const MODEL_SMART = 'gemini-3.8-flash';

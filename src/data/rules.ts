@@ -1,4 +1,4 @@
-import { Category, DrySubtype, HazardLevel } from '../types';
+import { Category, DrySubtype, HazardLevel } from '../types.js';
 
 export interface RuleEntry {
   itemKey: string;

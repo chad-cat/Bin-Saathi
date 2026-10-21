@@ -6,9 +6,9 @@ import {
   MODEL_SCAN,
   MODEL_SMART,
   SWM_DIGEST,
-} from '../config';
-import { LOCAL_RULES } from '../data/rules';
-import { Category, ScanResponse, ScannedItem } from '../types';
+} from '../config.js';
+import { LOCAL_RULES } from '../data/rules.js';
+import type{ Category, ScanResponse, ScannedItem } from '../types.js';
 
 // Read API key from environment in this module as required
 const apiKey = process.env.GEMINI_API_KEY || '';

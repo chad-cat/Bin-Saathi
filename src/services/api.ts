@@ -1,5 +1,5 @@
-import { storageService } from './storage';
-import { ScanResponse } from '../types';
+import { storageService } from './storage.js';
+import { ScanResponse } from '../types.js';
 
 export interface ScanApiResult {
   data?: ScanResponse;

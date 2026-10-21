@@ -1,4 +1,4 @@
-import { Category } from '../types';
+import { Category } from '../types.js';
 
 export interface GeorefConfig {
   mapSizePx: [number, number];

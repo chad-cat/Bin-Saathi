@@ -10,8 +10,8 @@ import {
   where,
 } from 'firebase/firestore';
 import { db, ensureAnonymousAuth } from './firebase';
-import { storageService } from './storage';
-import { Category, Site } from '../types';
+import { storageService } from './storage.js';
+import { Category, Site } from '../types.js';
 
 export interface SiteRepository {
   getSites(): Promise<Site[]>;

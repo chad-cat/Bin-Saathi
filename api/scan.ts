@@ -1,5 +1,5 @@
-import { scanWasteImageServer } from '../src/services/gemini';
-import { handleGeminiError } from './_lib/errors';
+import { scanWasteImageServer } from '../src/services/gemini.js';
+import { handleGeminiError } from './_lib/errors.js';
 
 export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
