@@ -44,6 +44,7 @@ export default function App() {
   const [isCorrectionSheetOpen, setIsCorrectionSheetOpen] = useState<boolean>(false);
   const [isCameraOpen, setIsCameraOpen] = useState<boolean>(false);
   const [itemToCorrect, setItemToCorrect] = useState<ScannedItem | null>(null);
+  const [onboardingDone, setOnboardingDone] = useState(false);
 
   const fallbackFileInputRef = useRef<HTMLInputElement>(null);
 
@@ -465,12 +466,15 @@ export default function App() {
         />
 
         {/* First Run Onboarding Modal */}
-        {!settings.hasSeenPrivacyNotice && (
+        {!settings.hasSeenPrivacyNotice && !onboardingDone && (
           <OnboardingModal
             language={language}
             onSelectLanguage={handleLanguageChange}
             onComplete={(dontShowAgain) => {
-              handleUpdateSettings({ hasSeenPrivacyNotice: dontShowAgain });
+              setOnboardingDone(true);
+              if (dontShowAgain) {
+                handleUpdateSettings({ hasSeenPrivacyNotice: true });
+              }
             }}
           />
         )}

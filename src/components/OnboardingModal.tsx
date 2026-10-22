@@ -72,14 +72,14 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({
             <p className="text-xs sm:text-sm text-[#6B6B66] leading-relaxed">{t.privacyNoticeBody}</p>
 
             <div className="mt-3.5 space-y-2.5 rounded-xl border border-[#E6E5E0] bg-white p-3.5 text-xs sm:text-sm text-[#1C1C1A]">
-              <div className="flex items-start gap-2">
+              {/* <div className="flex items-start gap-2">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2F3E46]" />
                 <span>{t.privacyNoticeBullet1}</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2F3E46]" />
                 <span>{t.privacyNoticeBullet2}</span>
-              </div>
+              </div> */}
               <div className="flex items-start gap-2 text-amber-900">
                 <AlertTriangle className="h-4 w-4 shrink-0 text-amber-700 mt-0.5" />
                 <span className="font-medium">{t.privacyNoticeBullet3}</span>
